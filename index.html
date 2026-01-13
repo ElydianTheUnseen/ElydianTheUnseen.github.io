@@ -17,18 +17,16 @@
     /* =====================
        HEADER / HERO
     ====================== */
-
     header {
       position: relative;
       background-image: url("DRUNKENMOON.png");
       background-size: cover;
       background-position: center;
-      padding: 260px 20px 160px; /* more top padding for art */
+      padding: 260px 20px 160px;
       text-align: center;
       overflow: hidden;
     }
 
-    /* Dark overlay for readability */
     header::before {
       content: "";
       position: absolute;
@@ -37,7 +35,6 @@
       z-index: 1;
     }
 
-    /* Bottom fade into page */
     header::after {
       content: "";
       position: absolute;
@@ -56,9 +53,8 @@
     }
 
     /* =====================
-       FLOATING LOGO (TOP LEFT)
+       FLOATING LOGO
     ====================== */
-
     .logo {
       position: absolute;
       top: 24px;
@@ -70,6 +66,11 @@
     .logo img {
       max-width: 140px;
       filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
+      cursor: default;
+    }
+
+    .logo img[title] {
+      position: relative;
     }
 
     @keyframes float {
@@ -81,7 +82,6 @@
     /* =====================
        TOP NAV
     ====================== */
-
     .top-nav {
       position: absolute;
       top: 30px;
@@ -107,21 +107,32 @@
     }
 
     /* =====================
-       SUBTITLE (PLACED LOWER)
+       SUBTITLE
     ====================== */
-
     .subtitle {
-      position: relative;
-      z-index: 4;
-      margin-top: 130px; /* pushes text below the PNG title */
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 22px;
       color: #b13a3a;
+      z-index: 4;
+      text-align: center;
+      white-space: nowrap;
+      padding: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+      .subtitle { font-size: 18px; bottom: 15px; }
+    }
+
+    @media (max-width: 480px) {
+      .subtitle { font-size: 16px; bottom: 10px; }
     }
 
     /* =====================
        EMBERS
     ====================== */
-
     .embers {
       position: absolute;
       inset: 0;
@@ -142,20 +153,13 @@
     }
 
     @keyframes rise {
-      from {
-        transform: translateY(0) scale(1);
-        opacity: 0.8;
-      }
-      to {
-        transform: translateY(-600px) scale(0.2);
-        opacity: 0;
-      }
+      from { transform: translateY(0) scale(1); opacity: 0.8; }
+      to { transform: translateY(-600px) scale(0.2); opacity: 0; }
     }
 
     /* =====================
        CONTENT
     ====================== */
-
     section {
       padding: 80px 20px;
       max-width: 1000px;
@@ -165,7 +169,7 @@
     .flavour {
       font-size: 20px;
       text-align: center;
-      margin-bottom: 60px;
+      margin-bottom: 30px;
     }
 
     .offerings {
@@ -187,6 +191,39 @@
       font-size: 24px;
     }
 
+    /* =====================
+       SCROLLING HORIZONTAL TICKER
+    ====================== */
+    .ticker-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      border-top: 1px solid #3b2a2a;
+      border-bottom: 1px solid #3b2a2a;
+      margin-bottom: 60px;
+    }
+
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 20s linear infinite;
+      font-weight: bold;
+      font-size: 18px;
+      color: #d4af37;
+    }
+
+    .ticker span {
+      margin: 0 50px; /* spacing between items */
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* =====================
+       FOOTER
+    ====================== */
     footer {
       background: #050505;
       padding: 60px 20px;
@@ -210,19 +247,32 @@
       font-weight: bold;
     }
 
-    .button:hover {
-      background: #bfa233;
+    .button:hover { background: #bfa233; }
+
+    /* =====================
+       TRANSPARENT DISCLAIMER
+    ====================== */
+    .disclaimer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.15);
+      pointer-events: none;
+      z-index: 1000;
+      padding: 6px 0;
     }
+
   </style>
 </head>
 
 <body>
 
 <header>
-
   <!-- Floating Logo -->
   <div class="logo">
-    <img src="DMTW.png" alt="The Drunken Moon Logo">
+    <img src="DMTW.png" alt="The Drunken Moon Logo" title="Est. 1025 under the Crimson Moon">
   </div>
 
   <!-- Top Nav -->
@@ -243,11 +293,10 @@
     <div class="ember" style="left:90%; animation-duration:8.5s;"></div>
   </div>
 
-  <!-- Subtitle ONLY -->
+  <!-- Subtitle -->
   <div class="subtitle">
     A Valdraethii Tavern of the Court of the Crimson Moon
   </div>
-
 </header>
 
 <section>
@@ -259,6 +308,15 @@
     merely a tavern — we are a gathering place, a cultural hub, and a reliable source
     of questionable decisions.
   </p>
+
+  <!-- Horizontal Ticker -->
+  <div class="ticker-wrapper">
+    <div class="ticker">
+      <span>Proud Sponsors of the Valdraeth Postal Service!</span>
+      <span>Only Genuine Sellers of Gulpers and Pinchshrooms!</span>
+      <span>See our other services: Shams Distilled DooDads & More!</span>
+    </div>
+  </div>
 
   <div class="offerings">
     <div class="card">
@@ -282,6 +340,11 @@
   </p>
   <a href="#" class="button">Speak to the Barkeep</a>
 </footer>
+
+<!-- Transparent disclaimer -->
+<div class="disclaimer">
+  This website is not for a real business and exists only within Menhirs Fate LARP.
+</div>
 
 </body>
 </html>
