@@ -11,27 +11,162 @@
       background: #0b0b0b;
       color: #e6e0d8;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    /* =====================
+       HEADER / HERO
+    ====================== */
+
     header {
-      background: radial-gradient(circle at top, #3b0f14, #0b0b0b);
-      padding: 100px 20px 80px;
+      position: relative;
+      background-image: url("DRUNKENMOON.png");
+      background-size: cover;
+      background-position: center;
+      padding: 140px 20px 160px;
       text-align: center;
+      overflow: hidden;
+    }
+
+    /* Dark overlay */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      z-index: 1;
+    }
+
+    /* Bottom fade */
+    header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 220px;
+      background: linear-gradient(
+        to bottom,
+        rgba(11, 11, 11, 0) 0%,
+        rgba(11, 11, 11, 0.6) 40%,
+        rgba(11, 11, 11, 1) 100%
+      );
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* =====================
+       FLOATING LOGO
+    ====================== */
+
+    .logo {
+      position: relative;
+      z-index: 4;
+      margin-bottom: 20px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .logo img {
+      max-width: 280px;
+      filter: drop-shadow(0 0 25px rgba(212,175,55,0.4));
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0); }
+    }
+
+    header h1,
+    header h2 {
+      position: relative;
+      z-index: 4;
     }
 
     header h1 {
       font-size: 64px;
       margin-bottom: 10px;
-      color: #d4af37; /* gold */
+      color: #d4af37;
       letter-spacing: 2px;
     }
 
     header h2 {
       font-size: 22px;
       font-weight: normal;
-      color: #b13a3a; /* crimson */
+      color: #b13a3a;
       margin-top: 0;
     }
+
+    /* =====================
+       TOP NAV (PARCHMENT)
+    ====================== */
+
+    .top-nav {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      display: flex;
+      gap: 16px;
+      z-index: 5;
+    }
+
+    .top-nav a {
+      color: rgba(212, 175, 55, 0.4);
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .top-nav a:hover {
+      color: #2b1b0f;
+      background: linear-gradient(
+        to bottom,
+        #f2e2b8,
+        #d4af37
+      );
+      box-shadow: 0 0 10px rgba(212,175,55,0.6);
+    }
+
+    /* =====================
+       EMBERS
+    ====================== */
+
+    .embers {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ember {
+      position: absolute;
+      bottom: -20px;
+      width: 4px;
+      height: 4px;
+      background: #d4af37;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: rise linear infinite;
+    }
+
+    @keyframes rise {
+      from {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-600px) scale(0.2);
+        opacity: 0;
+      }
+    }
+
+    /* =====================
+       CONTENT
+    ====================== */
 
     section {
       padding: 80px 20px;
@@ -45,18 +180,6 @@
       margin-bottom: 60px;
     }
 
-    .divider {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 60px 0;
-    }
-
-    .divider img {
-      max-height: 160px;
-      filter: drop-shadow(0 0 10px rgba(212,175,55,0.3));
-    }
-
     .offerings {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -67,7 +190,7 @@
     .card {
       border: 1px solid #3b2a2a;
       padding: 30px;
-      background: rgba(20, 20, 20, 0.8);
+      background: rgba(20, 20, 20, 0.85);
     }
 
     .card h3 {
@@ -108,58 +231,66 @@
 <body>
 
 <header>
+
+  <!-- Top Nav -->
+  <nav class="top-nav">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <a href="#">4</a>
+  </nav>
+
+  <!-- Embers -->
+  <div class="embers">
+    <!-- Duplicate for density -->
+    <div class="ember" style="left:10%; animation-duration:6s;"></div>
+    <div class="ember" style="left:25%; animation-duration:8s;"></div>
+    <div class="ember" style="left:40%; animation-duration:7s;"></div>
+    <div class="ember" style="left:60%; animation-duration:9s;"></div>
+    <div class="ember" style="left:75%; animation-duration:6.5s;"></div>
+    <div class="ember" style="left:90%; animation-duration:8.5s;"></div>
+  </div>
+
+  <!-- Floating Logo -->
+  <div class="logo">
+    <img src="DRUNKENMOON_LOGO.png" alt="The Drunken Moon Logo">
+  </div>
+
   <h1>The Drunken Moon</h1>
   <h2>A Valdraethii Tavern of the Court of the Crimson Moon</h2>
+
 </header>
 
 <section>
   <p class="flavour">
     Beneath crimson banners and a watchful moon, the Drunken Moon stands as a refuge
-    for denizens, wanderers, and schemers alike.  
+    for denizens, wanderers, and schemers alike.
     <br><br>
     Born of Valdraethii hands and bound to the Court of the Crimson Moon, we are not
     merely a tavern — we are a gathering place, a cultural hub, and a reliable source
     of questionable decisions.
   </p>
 
-  <div class="divider">
-    <img src="0.jpg" alt="Crimson Moon Banner">
-    <img src="1.jpg" alt="The Drunken Moon Sign">
-  </div>
-
   <div class="offerings">
     <div class="card">
       <h3>Affordable Booze</h3>
-      <p>
-        No extortionate prices. No noble mark-ups.  
-        Just honest drink poured heavy and often.
-      </p>
+      <p>Honest drink, poured heavy and often.</p>
     </div>
-
     <div class="card">
       <h3>Ample Seating</h3>
-      <p>
-        Benches, tables, corners to brood in — space enough for
-        conspiracies, camaraderie, and collapse.
-      </p>
+      <p>Room for conspiracies, camaraderie, and collapse.</p>
     </div>
-
     <div class="card">
       <h3>Drums & Antics</h3>
-      <p>
-        Home to the finest drummer this side of the Menhir,
-        accompanied by song, chaos, and ill-advised dares.
-      </p>
+      <p>The finest drummer this side of the Menhir.</p>
     </div>
   </div>
 </section>
 
 <footer>
   <p class="cta">
-    Seek the crimson banners. Follow the sound of drums.  
-    The Moon is already watching.
+    Seek the crimson banners. Follow the sound of drums.
   </p>
-
   <a href="#" class="button">Speak to the Barkeep</a>
 </footer>
 
