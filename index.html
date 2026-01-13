@@ -15,46 +15,41 @@
     }
 
     /* =====================
-       HEADER / HERO
+       HEADER
     ====================== */
     header {
       position: relative;
-      background-image: url("DRUNKENMOON.png");
-      background-size: cover;
-      background-position: center;
-      padding: 260px 20px 160px;
       text-align: center;
       overflow: hidden;
     }
 
-    header::before {
+    /* Banner Image */
+    .header-banner {
+      position: relative;
+      width: 100%;
+      max-height: 600px;
+      overflow: hidden;
+    }
+
+    .header-banner img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    /* Dark overlay on banner */
+    .header-banner::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-      z-index: 1;
-    }
-
-    header::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 220px;
-      background: linear-gradient(
-        to bottom,
-        rgba(11, 11, 11, 0) 0%,
-        rgba(11, 11, 11, 0.6) 40%,
-        rgba(11, 11, 11, 1) 100%
-      );
-      z-index: 2;
+      background: rgba(0,0,0,0.35);
       pointer-events: none;
+      z-index: 2;
     }
 
-    /* =====================
-       FLOATING LOGO
-    ====================== */
+    /* Floating Logo */
     .logo {
       position: absolute;
       top: 24px;
@@ -66,11 +61,7 @@
     .logo img {
       max-width: 140px;
       filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
-      cursor: default;
-    }
-
-    .logo img[title] {
-      position: relative;
+      cursor: pointer;
     }
 
     @keyframes float {
@@ -79,56 +70,18 @@
       100% { transform: translateY(0); }
     }
 
-    /* =====================
-       TOP NAV
-    ====================== */
-    .top-nav {
-      position: absolute;
-      top: 30px;
-      right: 30px;
-      display: flex;
-      gap: 16px;
-      z-index: 5;
-    }
-
-    .top-nav a {
-      color: rgba(212, 175, 55, 0.35);
-      text-decoration: none;
-      font-size: 16px;
-      padding: 6px 12px;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    .top-nav a:hover {
-      color: #2b1b0f;
-      background: linear-gradient(to bottom, #f2e2b8, #d4af37);
-      box-shadow: 0 0 10px rgba(212,175,55,0.6);
-    }
-
-    /* =====================
-       SUBTITLE
-    ====================== */
+    /* Subtitle */
     .subtitle {
-      position: absolute;
-      bottom: 0px;
-      left: 50%;
-      transform: translateX(-50%);
+      position: relative;
+      z-index: 4;
+      margin-top: 20px;
       font-size: 22px;
       color: #b13a3a;
-      z-index: 4;
       text-align: center;
-      white-space: nowrap;
-      padding: 0 10px;
     }
 
-    @media (max-width: 768px) {
-      .subtitle { font-size: 18px; bottom: 15px; }
-    }
-
-    @media (max-width: 480px) {
-      .subtitle { font-size: 16px; bottom: 10px; }
-    }
+    @media (max-width: 768px) { .subtitle { font-size: 18px; } }
+    @media (max-width: 480px) { .subtitle { font-size: 16px; } }
 
     /* =====================
        EMBERS
@@ -158,20 +111,74 @@
     }
 
     /* =====================
+       NAV
+    ====================== */
+    .top-nav {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      display: flex;
+      gap: 16px;
+      z-index: 5;
+    }
+
+    .top-nav a {
+      color: rgba(212, 175, 55, 0.35);
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav a:hover {
+      color: #2b1b0f;
+      background: linear-gradient(to bottom, #f2e2b8, #d4af37);
+      box-shadow: 0 0 10px rgba(212,175,55,0.6);
+    }
+
+    /* =====================
        CONTENT
     ====================== */
     section {
       padding: 80px 20px;
       max-width: 1000px;
       margin: auto;
+      text-align: center;
     }
 
     .flavour {
       font-size: 20px;
-      text-align: center;
       margin-bottom: 30px;
     }
 
+    /* Horizontal ticker */
+    .ticker-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      border-top: 1px solid #3b2a2a;
+      border-bottom: 1px solid #3b2a2a;
+      margin-bottom: 60px;
+    }
+
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 20s linear infinite;
+      font-weight: bold;
+      font-size: 18px;
+      color: #d4af37;
+    }
+
+    .ticker span { margin: 0 50px; }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Offerings cards */
     .offerings {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -189,36 +196,6 @@
       color: #d4af37;
       margin-bottom: 10px;
       font-size: 24px;
-    }
-
-    /* =====================
-       SCROLLING HORIZONTAL TICKER
-    ====================== */
-    .ticker-wrapper {
-      overflow: hidden;
-      white-space: nowrap;
-      width: 100%;
-      border-top: 1px solid #3b2a2a;
-      border-bottom: 1px solid #3b2a2a;
-      margin-bottom: 60px;
-    }
-
-    .ticker {
-      display: inline-block;
-      padding-left: 100%;
-      animation: scroll-left 40s linear infinite;
-      font-weight: bold;
-      font-size: 18px;
-      color: #d4af37;
-    }
-
-    .ticker span {
-      margin: 0 50px; /* spacing between items */
-    }
-
-    @keyframes scroll-left {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
     }
 
     /* =====================
@@ -249,19 +226,14 @@
 
     .button:hover { background: #bfa233; }
 
-    /* =====================
-       TRANSPARENT DISCLAIMER
-    ====================== */
+    /* Disclaimer now visible only at bottom */
     .disclaimer {
-      position: fixed;
-      bottom: 0;
       width: 100%;
       text-align: center;
       font-size: 12px;
       color: rgba(255, 255, 255, 0.15);
-      pointer-events: none;
-      z-index: 1000;
-      padding: 6px 0;
+      margin-top: 80px;
+      padding: 10px 0;
     }
 
   </style>
@@ -270,17 +242,22 @@
 <body>
 
 <header>
-  <!-- Floating Logo -->
-  <div class="logo">
-    <img src="DMTW.png" alt="The Drunken Moon Logo" title="Est. 1025 under the Crimson Moon">
+  <!-- Banner Image -->
+  <div class="header-banner">
+    <img src="DRUNKENMOON.png" alt="Drunken Moon Banner">
   </div>
 
- <nav class="top-nav">
-  <a href="drinks.html">Drinks</a>
-  <a href="events.html">Events</a>
-  <a href="merchandise.html">Merchandise</a>
-  <a href="history.html">History</a>
-</nav>
+  <!-- Floating Logo -->
+  <div class="logo">
+    <a href="index.html">
+      <img src="DMTW.png" alt="The Drunken Moon Logo" title="Back to Home">
+    </a>
+  </div>
+
+  <!-- Subtitle -->
+  <div class="subtitle">
+    A Valdraethii Tavern of the Court of the Crimson Moon
+  </div>
 
   <!-- Embers -->
   <div class="embers">
@@ -292,10 +269,13 @@
     <div class="ember" style="left:90%; animation-duration:8.5s;"></div>
   </div>
 
-  <!-- Subtitle -->
-  <div class="subtitle">
-    A Valdraethii Tavern of the Court of the Crimson Moon
-  </div>
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="drinks.html">Drinks</a>
+    <a href="events.html">Events</a>
+    <a href="merchandise.html">Merchandise</a>
+    <a href="history.html">History</a>
+  </nav>
 </header>
 
 <section>
@@ -317,6 +297,7 @@
     </div>
   </div>
 
+  <!-- Example Offerings -->
   <div class="offerings">
     <div class="card">
       <h3>Affordable Booze</h3>
@@ -334,16 +315,14 @@
 </section>
 
 <footer>
-  <p class="cta">
-    Seek the crimson banners. Follow the sound of drums.
-  </p>
+  <p class="cta">Seek the crimson banners. Follow the sound of drums.</p>
   <a href="#" class="button">Speak to the Barkeep</a>
-</footer>
 
-<!-- Transparent disclaimer -->
-<div class="disclaimer">
-  This website is not for a real business and exists only within Menhirs Fate LARP.
-</div>
+  <!-- Disclaimer only at bottom -->
+  <div class="disclaimer">
+    This website is not for a real business and exists only within Menhirs Fate LARP.
+  </div>
+</footer>
 
 </body>
 </html>
