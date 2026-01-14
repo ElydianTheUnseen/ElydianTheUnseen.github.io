@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Drunken Moon | Court of the Crimson Moon</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #0b0b0b;
+      color: #e6e0d8;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* =====================
+       HEADER
+    ====================== */
+    header {
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Banner Image */
+    .header-banner {
+      position: relative;
+      width: 100%;
+      max-height: 600px;
+      overflow: hidden;
+    }
+
+    .header-banner img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+    }
+
+    /* Dark overlay with bottom fade */
+    .header-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.35) 0%,  /* top dark overlay for text readability */
+        rgba(0,0,0,0) 50%,    /* middle transparent */
+        rgba(11,11,11,1) 100% /* fade into page background */
+      );
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    /* Floating Logo */
+    .logo {
+      position: absolute;
+      top: 24px;
+      left: 30px;
+      z-index: 5;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .logo img {
+      max-width: 140px;
+      filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
+      cursor: pointer;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* Subtitle */
+    .subtitle {
+      position: relative;
+      z-index: 4;
+      margin-top: 20px;
+      font-size: 22px;
+      color: #b13a3a;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) { .subtitle { font-size: 18px; } }
+    @media (max-width: 480px) { .subtitle { font-size: 16px; } }
+
+    /* =====================
+       EMBERS
+    ====================== */
+    .embers {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ember {
+      position: absolute;
+      bottom: -20px;
+      width: 4px;
+      height: 4px;
+      background: #d4af37;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: rise linear infinite;
+    }
+
+    @keyframes rise {
+      from { transform: translateY(0) scale(1); opacity: 0.8; }
+      to { transform: translateY(-600px) scale(0.2); opacity: 0; }
+    }
+
+    /* =====================
+       NAV
+    ====================== */
+    .top-nav {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      display: flex;
+      gap: 16px;
+      z-index: 5;
+    }
+
+    .top-nav a {
+      color: rgba(212, 175, 55, 0.35);
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav a:hover {
+      color: #2b1b0f;
+      background: linear-gradient(to bottom, #f2e2b8, #d4af37);
+      box-shadow: 0 0 10px rgba(212,175,55,0.6);
+    }
+
+    /* =====================
+       CONTENT
+    ====================== */
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .flavour {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    /* Horizontal ticker */
+    .ticker-wrapper {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      border-top: 1px solid #3b2a2a;
+      border-bottom: 1px solid #3b2a2a;
+      margin-bottom: 60px;
+    }
+
+    .ticker {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll-left 20s linear infinite;
+      font-weight: bold;
+      font-size: 18px;
+      color: #d4af37;
+    }
+
+    .ticker span { margin: 0 50px; }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Offerings cards */
+    .offerings {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .card {
+      border: 1px solid #3b2a2a;
+      padding: 30px;
+      background: rgba(20, 20, 20, 0.85);
+    }
+
+    .card h3 {
+      color: #d4af37;
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    /* =====================
+       FOOTER
+    ====================== */
+    footer {
+      background: #050505;
+      padding: 60px 20px;
+      text-align: center;
+      border-top: 1px solid #3b2a2a;
+    }
+
+    .cta {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 36px;
+      font-size: 18px;
+      color: #0b0b0b;
+      background: #d4af37;
+      text-decoration: none;
+      border-radius: 2px;
+      font-weight: bold;
+    }
+
+    .button:hover { background: #bfa233; }
+
+    /* Disclaimer now visible only at bottom */
+    .disclaimer {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.15);
+      margin-top: 80px;
+      padding: 10px 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <!-- Banner Image -->
+  <div class="header-banner">
+    <img src="DRUNKENMOON2.png" alt="Drunken Moon Banner">
+  </div>
+
+  <!-- Floating Logo -->
+  <div class="logo">
+    <a href="index.html">
+      <img src="DMTW.png" alt="The Drunken Moon Logo" title="Back to Home">
+    </a>
+  </div>
+
+  <!-- Subtitle -->
+  <div class="subtitle">
+    A Valdraethii Tavern of the Court of the Crimson Moon
+  </div>
+
+  <!-- Embers -->
+  <div class="embers">
+    <div class="ember" style="left:10%; animation-duration:6s;"></div>
+    <div class="ember" style="left:25%; animation-duration:8s;"></div>
+    <div class="ember" style="left:40%; animation-duration:7s;"></div>
+    <div class="ember" style="left:60%; animation-duration:9s;"></div>
+    <div class="ember" style="left:75%; animation-duration:6.5s;"></div>
+    <div class="ember" style="left:90%; animation-duration:8.5s;"></div>
+  </div>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="/drinks/">Drinks</a>
+    <a href="/events/">Events</a>
+    <a href="/merchandise/">Merchandise</a>
+    <a href="/history/">History</a>
+  </nav>
+</header>
+
+<section>
+  <p class="flavour">
+    Beneath crimson banners and a watchful moon, the Drunken Moon stands as a refuge
+    for denizens, wanderers, and schemers alike.
+    <br><br>
+    Born of Valdraethii hands and bound to the Court of the Crimson Moon, we are not
+    merely a tavern — we are a gathering place, a cultural hub, and a reliable source
+    of questionable decisions.
+  </p>
+
+  <!-- Horizontal Ticker -->
+  <div class="ticker-wrapper">
+    <div class="ticker">
+      <span>Proud Sponsors of the Valdraeth Postal Service!</span>
+      <span>Only Genuine Sellers of Gulpers and Pinchshrooms!</span>
+      <span>See our other services: Shams Distilled DooDads & More!</span>
+    </div>
+  </div>
+
+  <!-- Example Offerings -->
+  <div class="offerings">
+    <div class="card">
+      <h3>Affordable Booze</h3>
+      <p>Honest drink, poured heavy and often.</p>
+    </div>
+    <div class="card">
+      <h3>Ample Seating</h3>
+      <p>Room for conspiracies, camaraderie, and collapse.</p>
+    </div>
+    <div class="card">
+      <h3>Drums & Antics</h3>
+      <p>The finest drummer this side of the Menhir.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="cta">Seek the crimson banners. Follow the sound of drums.</p>
+  <a href="/ContactUs/" class="button">Speak to the Barkeep</a>
+
+  <!-- Disclaimer only at bottom -->
+  <div class="disclaimer">
+    This website is not for a real business and exists only within Menhirs Fate LARP.
+  </div>
+</footer>
+
+</body>
+</html>
