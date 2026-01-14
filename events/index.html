@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Drunken Moon | Drinks</title>
+  <title>The Drunken Moon | Events</title>
 
   <style>
     body {
@@ -25,7 +25,6 @@
       overflow: hidden;
     }
 
-    /* Dark overlay for readability */
     header::before {
       content: "";
       position: absolute;
@@ -55,6 +54,33 @@
       0% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0); }
+    }
+
+    /* =====================
+       TOP NAV
+    ====================== */
+    .top-nav {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      display: flex;
+      gap: 16px;
+      z-index: 5;
+    }
+
+    .top-nav a {
+      color: rgba(212, 175, 55, 0.35);
+      text-decoration: none;
+      font-size: 16px;
+      padding: 6px 12px;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .top-nav a:hover {
+      color: #2b1b0f;
+      background: linear-gradient(to bottom, #f2e2b8, #d4af37);
+      box-shadow: 0 0 10px rgba(212,175,55,0.6);
     }
 
     /* =====================
@@ -97,13 +123,11 @@
       animation: rise linear infinite, flicker 3s infinite;
     }
 
-    /* Slow, varied rise animation */
     @keyframes rise {
       0% { transform: translateY(0) scale(1); opacity: 0.5; }
       100% { transform: translateY(-800px) scale(0.2); opacity: 0; }
     }
 
-    /* Flicker shimmer */
     @keyframes flicker {
       0%, 100% { opacity: 0.4; transform: scale(0.9); }
       50% { opacity: 0.8; transform: scale(1.2); }
@@ -158,21 +182,30 @@
       margin-top: 60px;
       padding: 10px 0;
     }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  <!-- Logo with link back to index -->
+  <!-- Logo with link back to home -->
   <div class="logo">
     <a href="/home/">
       <img src="DMTW.png" alt="The Drunken Moon Logo" title="Back to Home">
     </a>
   </div>
 
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="/drinks/">Drinks</a>
+    <a href="/events/">Events</a>
+    <a href="/merchandise/">Merchandise</a>
+    <a href="/history/">History</a>
+  </nav>
+
   <!-- Header Title -->
-  <div class="header-title">EVENTS</div>
+  <div class="header-title">EVENTS!</div>
   <div class="header-flavour">More to come for eager eyes...</div>
 
   <!-- Embers -->
@@ -191,7 +224,7 @@
 </header>
 
 <section>
-  <!-- Future content can go here -->
+  <!-- Future content -->
 </section>
 
 <footer>
