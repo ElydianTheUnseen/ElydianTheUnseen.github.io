@@ -1,1 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Drunken Moon | Drinks</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Georgia", serif;
+      background: #0b0b0b;
+      color: #e6e0d8;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* =====================
+       HEADER
+    ====================== */
+    header {
+      position: relative;
+      background: linear-gradient(to bottom, #3b0000 0%, #0b0b0b 100%);
+      padding: 180px 20px 100px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Dark overlay for readability */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.15);
+      z-index: 1;
+    }
+
+    /* =====================
+       FLOATING LOGO
+    ====================== */
+    .logo {
+      position: absolute;
+      top: 24px;
+      left: 30px;
+      z-index: 5;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .logo img {
+      max-width: 140px;
+      filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
+      cursor: pointer;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* =====================
+       HEADER TEXT
+    ====================== */
+    .header-title {
+      position: relative;
+      z-index: 4;
+      font-size: 42px;
+      color: #d4af37;
+      margin-bottom: 20px;
+    }
+
+    .header-flavour {
+      position: relative;
+      z-index: 4;
+      font-size: 20px;
+      color: #e6e0d8;
+    }
+
+    /* =====================
+       EMBERS
+    ====================== */
+    .embers {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ember {
+      position: absolute;
+      bottom: -20px;
+      width: 4px;
+      height: 4px;
+      background: #d4af37;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: rise linear infinite, flicker 3s infinite;
+    }
+
+    /* Slow, varied rise animation */
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0.5; }
+      100% { transform: translateY(-800px) scale(0.2); opacity: 0; }
+    }
+
+    /* Flicker shimmer */
+    @keyframes flicker {
+      0%, 100% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 0.8; transform: scale(1.2); }
+    }
+
+    /* =====================
+       CONTENT
+    ====================== */
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    /* =====================
+       FOOTER
+    ====================== */
+    footer {
+      background: #050505;
+      padding: 30px 20px;
+      text-align: center;
+      border-top: 1px solid #3b2a2a;
+    }
+
+    .cta {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 30px;
+      font-size: 16px;
+      color: #0b0b0b;
+      background: #d4af37;
+      text-decoration: none;
+      border-radius: 2px;
+      font-weight: bold;
+    }
+
+    .button:hover { background: #bfa233; }
+
+    /* =====================
+       DISCLAIMER
+    ====================== */
+    .disclaimer {
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.15);
+      margin-top: 60px;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <!-- Logo with link back to index -->
+  <div class="logo">
+    <a href="index.html">
+      <img src="DMTW.png" alt="The Drunken Moon Logo" title="Back to Home">
+    </a>
+  </div>
+
+  <!-- Header Title -->
+  <div class="header-title">Events!</div>
+  <div class="header-flavour">More to come for eager eyes...</div>
+
+  <!-- Embers -->
+  <div class="embers">
+    <div class="ember" style="left:5%; animation-duration:12s;"></div>
+    <div class="ember" style="left:15%; animation-duration:14s;"></div>
+    <div class="ember" style="left:25%; animation-duration:13s;"></div>
+    <div class="ember" style="left:35%; animation-duration:15s;"></div>
+    <div class="ember" style="left:45%; animation-duration:12s;"></div>
+    <div class="ember" style="left:55%; animation-duration:14s;"></div>
+    <div class="ember" style="left:65%; animation-duration:13s;"></div>
+    <div class="ember" style="left:75%; animation-duration:15s;"></div>
+    <div class="ember" style="left:85%; animation-duration:12s;"></div>
+    <div class="ember" style="left:95%; animation-duration:14s;"></div>
+  </div>
+</header>
+
+<section>
+  <!-- Future content can go here -->
+</section>
+
+<footer>
+  <p class="cta">Seek the crimson banners. Follow the sound of drums.</p>
+  <a href="ContactUs.html" class="button">Speak to the Barkeep</a>
+
+  <!-- Disclaimer at bottom -->
+  <div class="disclaimer">
+    This website is not for a real business and exists only within Menhirs Fate LARP.
+  </div>
+</footer>
+
+</body>
+</html>
 
