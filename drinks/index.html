@@ -21,6 +21,7 @@
       padding: 180px 20px 100px;
       text-align: center;
       overflow: hidden;
+      z-index: 4;
     }
 
     header::before {
@@ -93,11 +94,11 @@
       color: #e6e0d8;
     }
 
-    /* ===================== EMBERS ====================== */
+    /* ===================== EMBERS (FULL PAGE) ====================== */
     .embers {
       position: fixed;
       inset: 0;
-      z-index: 2; /* below header text and logo */
+      z-index: 2; /* behind header text and nav */
       pointer-events: none;
       overflow: visible;
     }
@@ -116,7 +117,7 @@
 
     @keyframes rise {
       0% { transform: translateY(0) scale(1); opacity: 0.5; }
-      100% { transform: translateY(-800px) scale(0.2); opacity: 0; }
+      100% { transform: translateY(-1200px) scale(0.2); opacity: 0; }
     }
 
     @keyframes flicker {
@@ -130,6 +131,8 @@
       max-width: 1000px;
       margin: auto;
       text-align: center;
+      position: relative;
+      z-index: 3;
     }
 
     /* ===================== FOOTER ====================== */
@@ -138,6 +141,8 @@
       padding: 30px 20px;
       text-align: center;
       border-top: 1px solid #3b2a2a;
+      position: relative;
+      z-index: 3;
     }
 
     .cta {
