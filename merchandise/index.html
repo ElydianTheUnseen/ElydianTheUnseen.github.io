@@ -2,16 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Drunken Moon | Merchandise</title>
+  <title>The Drunken Moon | Wares & Whispers</title>
 
   <style>
     body {
       margin: 0;
-      font-family: "Georgia", serif;
+      font-family: "Georgia", "Garamond", serif;
       background: #0b0b0b;
       color: #e6e0d8;
-      line-height: 1.6;
+      line-height: 1.7;
       overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: "Palatino Linotype", "Book Antiqua", serif;
+      letter-spacing: 1px;
     }
 
     /* =====================
@@ -20,7 +25,7 @@
     header {
       position: relative;
       background: linear-gradient(to bottom, #3b0000 0%, #0b0b0b 100%);
-      padding: 180px 20px 100px;
+      padding: 180px 20px 110px;
       text-align: center;
       overflow: hidden;
     }
@@ -29,7 +34,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.2);
       z-index: 1;
     }
 
@@ -47,7 +52,6 @@
     .logo img {
       max-width: 140px;
       filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
-      cursor: pointer;
     }
 
     @keyframes float {
@@ -69,11 +73,10 @@
     }
 
     .top-nav a {
-      color: rgba(212, 175, 55, 0.35);
+      color: rgba(212,175,55,0.35);
       text-decoration: none;
       font-size: 16px;
       padding: 6px 12px;
-      border-radius: 2px;
       transition: all 0.3s ease;
     }
 
@@ -89,15 +92,17 @@
     .header-title {
       position: relative;
       z-index: 4;
-      font-size: 42px;
+      font-size: 46px;
       color: #d4af37;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .header-flavour {
       position: relative;
       z-index: 4;
       font-size: 20px;
+      max-width: 700px;
+      margin: auto;
       color: #e6e0d8;
     }
 
@@ -125,22 +130,50 @@
 
     @keyframes rise {
       0% { transform: translateY(0) scale(1); opacity: 0.5; }
-      100% { transform: translateY(-800px) scale(0.2); opacity: 0; }
+      100% { transform: translateY(-900px) scale(0.2); opacity: 0; }
     }
 
     @keyframes flicker {
-      0%, 100% { opacity: 0.4; transform: scale(0.9); }
-      50% { opacity: 0.8; transform: scale(1.2); }
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
     }
 
     /* =====================
-       CONTENT
+       CONTENT SECTIONS
     ====================== */
     section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
+      padding: 80px 20px;
       text-align: center;
+    }
+
+    .divider {
+      width: 120px;
+      height: 1px;
+      background: #3b2a2a;
+      margin: 40px auto;
+    }
+
+    .item {
+      margin-bottom: 80px;
+    }
+
+    .item h2 {
+      font-size: 32px;
+      color: #d4af37;
+      margin-bottom: 10px;
+    }
+
+    .item p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+
+    .invitation {
+      font-style: italic;
+      color: rgba(212,175,55,0.8);
     }
 
     /* =====================
@@ -148,7 +181,7 @@
     ====================== */
     footer {
       background: #050505;
-      padding: 30px 20px;
+      padding: 40px 20px;
       text-align: center;
       border-top: 1px solid #3b2a2a;
     }
@@ -171,32 +204,21 @@
 
     .button:hover { background: #bfa233; }
 
-    /* =====================
-       DISCLAIMER
-    ====================== */
     .disclaimer {
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.15);
       margin-top: 60px;
-      padding: 10px 0;
+      font-size: 12px;
+      color: rgba(255,255,255,0.15);
     }
-
   </style>
 </head>
 
 <body>
 
 <header>
-  <!-- Logo with link back to home -->
   <div class="logo">
-    <a href="/home/">
-      <img src="DMTW.png" alt="The Drunken Moon Logo" title="Back to Home">
-    </a>
+    <a href="/home/"><img src="DMTW.png" alt="The Drunken Moon"></a>
   </div>
 
-  <!-- Top Navigation -->
   <nav class="top-nav">
     <a href="/drinks/">Drinks</a>
     <a href="/events/">Events</a>
@@ -204,34 +226,68 @@
     <a href="/history/">History</a>
   </nav>
 
-  <!-- Header Title -->
-  <div class="header-title">MERCHANDISE</div>
-  <div class="header-flavour">More to come for eager eyes...</div>
+  <div class="header-title">Wares & Whispers</div>
+  <div class="header-flavour">
+    Not all things of worth are sold across a counter.<br>
+    Some are found beneath banners, traded in candlelight, or claimed when the Moon is drunk.
+  </div>
 
-  <!-- Embers -->
   <div class="embers">
-    <div class="ember" style="left:5%; animation-duration:12s;"></div>
-    <div class="ember" style="left:15%; animation-duration:14s;"></div>
-    <div class="ember" style="left:25%; animation-duration:13s;"></div>
-    <div class="ember" style="left:35%; animation-duration:15s;"></div>
-    <div class="ember" style="left:45%; animation-duration:12s;"></div>
-    <div class="ember" style="left:55%; animation-duration:14s;"></div>
-    <div class="ember" style="left:65%; animation-duration:13s;"></div>
-    <div class="ember" style="left:75%; animation-duration:15s;"></div>
-    <div class="ember" style="left:85%; animation-duration:12s;"></div>
-    <div class="ember" style="left:95%; animation-duration:14s;"></div>
+    <div class="ember" style="left:5%; animation-duration:14s;"></div>
+    <div class="ember" style="left:15%; animation-duration:12s;"></div>
+    <div class="ember" style="left:30%; animation-duration:16s;"></div>
+    <div class="ember" style="left:45%; animation-duration:13s;"></div>
+    <div class="ember" style="left:60%; animation-duration:15s;"></div>
+    <div class="ember" style="left:75%; animation-duration:14s;"></div>
+    <div class="ember" style="left:90%; animation-duration:12s;"></div>
   </div>
 </header>
 
 <section>
-  <!-- Future content -->
+  <div class="item">
+    <h2>Gulpers</h2>
+    <p>
+      Broad-mouthed and endlessly loyal, Gulpers cling to their bearer through camps,
+      markets, and misadventures. They swallow tools, trinkets, and secrets without judgement.
+    </p>
+    <p class="invitation">
+      Seek us out in the field to find your familiar.<br>
+      Gulpers do not travel by post.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="item">
+    <h2>Pinchshrooms</h2>
+    <p>
+      Soft-spoken companions with a habit of appearing where least expected.
+      Many swear they grow warm when danger — or ale — is near.
+    </p>
+    <p class="invitation">
+      They reveal themselves only at the Tavern.<br>
+      If one finds you, it was meant to.
+    </p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="item">
+    <h2>Marks of the Drunken Moon</h2>
+    <p>
+      Those who bear the Moon’s mark are often recognised before they speak.
+      Seen beneath crimson banners, worn by schemers, singers, and survivors alike.
+    </p>
+    <p class="invitation">
+      The Moon does not sell loyalty — it bestows it.
+    </p>
+  </div>
 </section>
 
 <footer>
   <p class="cta">Seek the crimson banners. Follow the sound of drums.</p>
   <a href="/ContactUs/" class="button">Speak to the Barkeep</a>
 
-  <!-- Disclaimer at bottom -->
   <div class="disclaimer">
     This website is not for a real business and exists only within Menhirs Fate LARP.
   </div>
