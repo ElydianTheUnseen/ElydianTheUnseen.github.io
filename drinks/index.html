@@ -14,9 +14,7 @@
       overflow-x: hidden;
     }
 
-    /* =====================
-       HEADER
-    ====================== */
+    /* ===================== HEADER ===================== */
     header {
       position: relative;
       background: linear-gradient(to bottom, #3b0000 0%, #0b0b0b 100%);
@@ -33,9 +31,7 @@
       z-index: 1;
     }
 
-    /* =====================
-       FLOATING LOGO
-    ====================== */
+    /* ===================== FLOATING LOGO ===================== */
     .logo {
       position: absolute;
       top: 24px;
@@ -46,7 +42,7 @@
 
     .logo img {
       max-width: 140px;
-      filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
+      filter: drop-shadow(0 0 18px rgba(212,175,55,0.8));
       cursor: pointer;
     }
 
@@ -56,9 +52,7 @@
       100% { transform: translateY(0); }
     }
 
-    /* =====================
-       TOP NAV
-    ====================== */
+    /* ===================== TOP NAV ===================== */
     .top-nav {
       position: absolute;
       top: 30px;
@@ -80,12 +74,10 @@
     .top-nav a:hover {
       color: #2b1b0f;
       background: linear-gradient(to bottom, #f2e2b8, #d4af37);
-      box-shadow: 0 0 10px rgba(212,175,55,0.6);
+      box-shadow: 0 0 12px rgba(212,175,55,0.7);
     }
 
-    /* =====================
-       HEADER TEXT
-    ====================== */
+    /* ===================== HEADER TEXT ===================== */
     .header-title {
       position: relative;
       z-index: 4;
@@ -101,9 +93,7 @@
       color: #e6e0d8;
     }
 
-    /* =====================
-       EMBERS
-    ====================== */
+    /* ===================== EMBERS ===================== */
     .embers {
       position: absolute;
       inset: 0;
@@ -119,23 +109,22 @@
       height: 4px;
       background: #d4af37;
       border-radius: 50%;
-      opacity: 0.5;
-      animation: rise linear infinite, flicker 3s infinite;
+      box-shadow: 0 0 10px #d4af37, 0 0 20px #d4af37, 0 0 30px #d4af37;
+      opacity: 0.6;
+      animation: rise linear infinite, flicker 2s infinite;
     }
 
     @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.5; }
+      0% { transform: translateY(0) scale(1); opacity: 0.6; }
       100% { transform: translateY(-800px) scale(0.2); opacity: 0; }
     }
 
     @keyframes flicker {
       0%, 100% { opacity: 0.4; transform: scale(0.9); }
-      50% { opacity: 0.8; transform: scale(1.2); }
+      50% { opacity: 0.9; transform: scale(1.2); }
     }
 
-    /* =====================
-       CONTENT
-    ====================== */
+    /* ===================== CONTENT ===================== */
     section {
       padding: 60px 20px;
       max-width: 1000px;
@@ -143,12 +132,10 @@
       text-align: center;
     }
 
-    /* =====================
-       FOOTER
-    ====================== */
+    /* ===================== FOOTER ===================== */
     footer {
       background: #050505;
-      padding: 30px 20px;
+      padding: 20px 20px;
       text-align: center;
       border-top: 1px solid #3b2a2a;
     }
@@ -171,9 +158,7 @@
 
     .button:hover { background: #bfa233; }
 
-    /* =====================
-       DISCLAIMER
-    ====================== */
+    /* ===================== DISCLAIMER ===================== */
     .disclaimer {
       width: 100%;
       text-align: center;
@@ -182,7 +167,6 @@
       margin-top: 60px;
       padding: 10px 0;
     }
-
   </style>
 </head>
 
