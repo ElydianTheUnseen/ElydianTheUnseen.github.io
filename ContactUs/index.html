@@ -7,35 +7,27 @@
   <style>
     body {
       margin: 0;
-      font-family: "Georgia", serif;
+      font-family: "Georgia", "Garamond", serif;
       background: #0b0b0b;
       color: #e6e0d8;
-      line-height: 1.6;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
-    /* =====================
-       HEADER
-    ====================== */
+    h1, h2, h3 {
+      font-family: "Palatino Linotype", "Book Antiqua", serif;
+      letter-spacing: 1px;
+    }
+
+    /* HEADER */
     header {
       position: relative;
       background: linear-gradient(to bottom, #3b0000 0%, #0b0b0b 100%);
-      padding: 180px 20px 100px;
+      padding: 180px 20px 110px;
       text-align: center;
       overflow: hidden;
     }
 
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.15);
-      z-index: 1;
-    }
-
-    /* =====================
-       FLOATING LOGO
-    ====================== */
     .logo {
       position: absolute;
       top: 24px;
@@ -47,7 +39,6 @@
     .logo img {
       max-width: 140px;
       filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
-      cursor: pointer;
     }
 
     @keyframes float {
@@ -56,9 +47,6 @@
       100% { transform: translateY(0); }
     }
 
-    /* =====================
-       TOP NAV
-    ====================== */
     .top-nav {
       position: absolute;
       top: 30px;
@@ -69,12 +57,10 @@
     }
 
     .top-nav a {
-      color: rgba(212, 175, 55, 0.35);
+      color: rgba(212,175,55,0.35);
       text-decoration: none;
       font-size: 16px;
       padding: 6px 12px;
-      border-radius: 2px;
-      transition: all 0.3s ease;
     }
 
     .top-nav a:hover {
@@ -83,33 +69,28 @@
       box-shadow: 0 0 10px rgba(212,175,55,0.6);
     }
 
-    /* =====================
-       HEADER TEXT
-    ====================== */
     .header-title {
       position: relative;
       z-index: 4;
-      font-size: 42px;
+      font-size: 46px;
       color: #d4af37;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .header-flavour {
       position: relative;
       z-index: 4;
       font-size: 20px;
-      color: #e6e0d8;
+      max-width: 700px;
+      margin: auto;
     }
 
-    /* =====================
-       EMBERS
-    ====================== */
+    /* EMBERS */
     .embers {
       position: absolute;
       inset: 0;
       z-index: 3;
       pointer-events: none;
-      overflow: hidden;
     }
 
     .ember {
@@ -125,78 +106,117 @@
 
     @keyframes rise {
       0% { transform: translateY(0) scale(1); opacity: 0.5; }
-      100% { transform: translateY(-800px) scale(0.2); opacity: 0; }
+      100% { transform: translateY(-900px) scale(0.2); opacity: 0; }
     }
 
     @keyframes flicker {
-      0%, 100% { opacity: 0.4; transform: scale(0.9); }
-      50% { opacity: 0.8; transform: scale(1.2); }
+      0%,100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
     }
 
-    /* =====================
-       CONTENT
-    ====================== */
+    /* CONTENT */
     section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      max-width: 900px;
       margin: auto;
+      padding: 80px 20px;
       text-align: center;
     }
 
-    /* =====================
-       FOOTER
-    ====================== */
+    h2 {
+      color: #d4af37;
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* PARCHMENT EMAIL BUTTON */
+    .scroll-button {
+      position: relative;
+      display: inline-block;
+      padding: 22px 46px;
+      background: linear-gradient(to bottom, #f3ecd9, #e8dec2);
+      color: #3a2a18;
+      font-family: "Palatino Linotype", "Book Antiqua", serif;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+
+      border: 1px solid #9c8a5f;
+      outline: 2px solid rgba(212,175,55,0.35);
+      outline-offset: -6px;
+
+      box-shadow:
+        inset 0 0 18px rgba(0,0,0,0.15),
+        4px 6px 14px rgba(0,0,0,0.55);
+
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .scroll-button:hover {
+      transform: translateY(-2px);
+      box-shadow:
+        inset 0 0 22px rgba(0,0,0,0.18),
+        6px 10px 18px rgba(0,0,0,0.7);
+    }
+
+    /* Tooltip */
+    .scroll-button::after {
+      content: "Opens your chosen email provider";
+      position: absolute;
+      bottom: -42px;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+
+      background: rgba(5,5,5,0.9);
+      color: #d4af37;
+      font-size: 14px;
+      padding: 6px 12px;
+
+      border: 1px solid #3b2a2a;
+      box-shadow: 0 0 10px rgba(0,0,0,0.6);
+
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .scroll-button:hover::after {
+      opacity: 1;
+    }
+
     footer {
       background: #050505;
-      padding: 30px 20px;
+      padding: 40px 20px;
       text-align: center;
       border-top: 1px solid #3b2a2a;
     }
 
-    .cta {
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 12px 30px;
-      font-size: 16px;
-      color: #0b0b0b;
-      background: #d4af37;
-      text-decoration: none;
-      border-radius: 2px;
-      font-weight: bold;
-    }
-
-    .button:hover { background: #bfa233; }
-
-    /* =====================
-       DISCLAIMER
-    ====================== */
     .disclaimer {
-      width: 100%;
-      text-align: center;
+      margin-top: 40px;
       font-size: 12px;
-      color: rgba(255, 255, 255, 0.15);
-      margin-top: 60px;
-      padding: 10px 0;
+      color: rgba(255,255,255,0.15);
     }
 
+    @media (max-width: 768px) {
+      .scroll-button {
+        padding: 18px 32px;
+        font-size: 18px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
 <header>
-  <!-- Logo with link back to home -->
-  <div class="logo">
-    <a href="/home/">
-      <img src="DMTW.png" alt="The Drunken Moon Logo" title="Back to Home">
-    </a>
-  </div>
+  <div class="logo"><a href="/home/"><img src="DMTW.png" alt="The Drunken Moon"></a></div>
 
-  <!-- Top Navigation -->
   <nav class="top-nav">
     <a href="/drinks/">Drinks</a>
     <a href="/events/">Events</a>
@@ -204,36 +224,46 @@
     <a href="/history/">History</a>
   </nav>
 
-  <!-- Header Title -->
-  <div class="header-title">Contact Us</div>
-  <div class="header-flavour">Currently... Do Not Contact Us :D</div>
+  <div class="header-title">Send Word to the Tavern</div>
+  <div class="header-flavour">
+    Words travel further than legs sometimes.<br>
+    Find us near in the Valdraeth Camp at Haven. The Drunken Moon can be found near The Story Square, where tales and chaos bloom.
+  </div>
 
-  <!-- Embers -->
   <div class="embers">
-    <div class="ember" style="left:5%; animation-duration:12s;"></div>
-    <div class="ember" style="left:15%; animation-duration:14s;"></div>
-    <div class="ember" style="left:25%; animation-duration:13s;"></div>
-    <div class="ember" style="left:35%; animation-duration:15s;"></div>
-    <div class="ember" style="left:45%; animation-duration:12s;"></div>
-    <div class="ember" style="left:55%; animation-duration:14s;"></div>
-    <div class="ember" style="left:65%; animation-duration:13s;"></div>
-    <div class="ember" style="left:75%; animation-duration:15s;"></div>
-    <div class="ember" style="left:85%; animation-duration:12s;"></div>
-    <div class="ember" style="left:95%; animation-duration:14s;"></div>
+    <div class="ember" style="left:10%; animation-duration:14s;"></div>
+    <div class="ember" style="left:40%; animation-duration:16s;"></div>
+    <div class="ember" style="left:70%; animation-duration:13s;"></div>
   </div>
 </header>
 
 <section>
-  <!-- Future content -->
+  <h2>Seek Us on the Field</h2>
+  <p>
+    Our camp forms a proud arc around the open-air bar awning. Beneath the banners of red, black, and gold lies a sea of benches and rugs, where wanderers gather, stories unfold, and the ale flows easily.
+    We are usually found against The Story Square — witness to combat tourneys, theatre, weddings, and the occasional rabbit race.
+  </p>
+  <p>
+    Approach if you dare, follow the laughter, or simply step onto the grass and join the revelry. We welcome all travelers, adventurers, and curious souls alike.
+  </p>
+
+  <h2>Send Word by Scroll</h2>
+  <p>
+    If your feet cannot carry you to our tents, send a missive instead. Keep your letters in the tongue of the court — playful, earnest, or mischievous — and our scribes shall reply in kind.
+  </p>
+
+  <a href="mailto:enquiries@drunkenmoon.co.uk?subject=Word%20from%20a%20Wayfarer" class="scroll-button">
+    Ink Your Scroll...
+  </a>
+
+  <p style="margin-top:40px; font-size:16px;">
+    Tip: Missives in rhyme or adorned with sketches of toads, dragons, or mugs of ale are highly encouraged.
+  </p>
 </section>
 
 <footer>
-  <p class="cta">Seek the crimson banners. Follow the sound of drums.</p>
-  <a href="/ContactUs/" class="button">Speak to the Barkeep</a>
-
-  <!-- Disclaimer at bottom -->
   <div class="disclaimer">
-    This website is not for a real business and exists only within Menhirs Fate LARP.
+  This website is not for a real business and exists only within Menhirs Fate LARP.
   </div>
 </footer>
 
