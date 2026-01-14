@@ -1,202 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>The Drunken Moon | History</title>
+<meta charset="UTF-8">
+<title>The Drunken Moon | Chronicle</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Georgia", serif;
-      background: #0b0b0b;
-      color: #e6e0d8;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: "Georgia", serif;
+  background: #0b0b0b;
+  color: #e6e0d8;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-    /* =====================
-       HEADER
-    ====================== */
-    header {
-      position: relative;
-      background: linear-gradient(to bottom, #3b0000 0%, #0b0b0b 100%);
-      padding: 180px 20px 100px;
-      text-align: center;
-      overflow: hidden;
-    }
+/* =====================
+   HEADER
+====================== */
+header {
+  position: relative;
+  background: linear-gradient(to bottom, #3b0000 0%, #0b0b0b 100%);
+  padding: 180px 20px 100px;
+  text-align: center;
+  overflow: hidden;
+}
 
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.15);
-      z-index: 1;
-    }
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 1;
+}
 
-    /* =====================
-       FLOATING LOGO
-    ====================== */
-    .logo {
-      position: absolute;
-      top: 24px;
-      left: 30px;
-      z-index: 5;
-      animation: float 6s ease-in-out infinite;
-    }
+/* =====================
+   FLOATING LOGO
+====================== */
+.logo {
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  z-index: 5;
+  animation: float 6s ease-in-out infinite;
+}
 
-    .logo img {
-      max-width: 140px;
-      filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
-      cursor: pointer;
-    }
+.logo img {
+  max-width: 140px;
+  filter: drop-shadow(0 0 18px rgba(212,175,55,0.4));
+  cursor: pointer;
+}
 
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
 
-    /* =====================
-       TOP NAV
-    ====================== */
-    .top-nav {
-      position: absolute;
-      top: 30px;
-      right: 30px;
-      display: flex;
-      gap: 16px;
-      z-index: 5;
-    }
+/* =====================
+   TOP NAV
+====================== */
+.top-nav {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  display: flex;
+  gap: 16px;
+  z-index: 5;
+}
 
-    .top-nav a {
-      color: rgba(212, 175, 55, 0.35);
-      text-decoration: none;
-      font-size: 16px;
-      padding: 6px 12px;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
+.top-nav a {
+  color: rgba(212, 175, 55, 0.35);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
 
-    .top-nav a:hover {
-      color: #2b1b0f;
-      background: linear-gradient(to bottom, #f2e2b8, #d4af37);
-      box-shadow: 0 0 10px rgba(212,175,55,0.6);
-    }
+.top-nav a:hover {
+  color: #2b1b0f;
+  background: linear-gradient(to bottom, #f2e2b8, #d4af37);
+  box-shadow: 0 0 10px rgba(212,175,55,0.6);
+}
 
-    /* =====================
-       HEADER TEXT
-    ====================== */
-    .header-title {
-      position: relative;
-      z-index: 4;
-      font-size: 42px;
-      color: #d4af37;
-      margin-bottom: 20px;
-    }
+/* =====================
+   HEADER TEXT
+====================== */
+.header-title {
+  position: relative;
+  z-index: 4;
+  font-size: 42px;
+  color: #d4af37;
+  margin-bottom: 20px;
+}
 
-    .header-flavour {
-      position: relative;
-      z-index: 4;
-      font-size: 20px;
-      color: #e6e0d8;
-    }
+.header-flavour {
+  position: relative;
+  z-index: 4;
+  font-size: 20px;
+  color: #e6e0d8;
+}
 
-    /* =====================
-       EMBERS
-    ====================== */
-    .embers {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      pointer-events: none;
-      overflow: hidden;
-    }
+/* =====================
+   EMBERS
+====================== */
+.embers {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
 
-    .ember {
-      position: absolute;
-      bottom: -20px;
-      width: 4px;
-      height: 4px;
-      background: #d4af37;
-      border-radius: 50%;
-      opacity: 0.5;
-      animation: rise linear infinite, flicker 3s infinite;
-    }
+.ember {
+  position: absolute;
+  bottom: -20px;
+  width: 4px;
+  height: 4px;
+  background: #d4af37;
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: rise linear infinite, flicker 3s infinite;
+}
 
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.5; }
-      100% { transform: translateY(-800px) scale(0.2); opacity: 0; }
-    }
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.5; }
+  100% { transform: translateY(-800px) scale(0.2); opacity: 0; }
+}
 
-    @keyframes flicker {
-      0%, 100% { opacity: 0.4; transform: scale(0.9); }
-      50% { opacity: 0.8; transform: scale(1.2); }
-    }
+@keyframes flicker {
+  0%, 100% { opacity: 0.4; transform: scale(0.9); }
+  50% { opacity: 0.8; transform: scale(1.2); }
+}
 
-    /* =====================
-       CONTENT
-    ====================== */
-    section {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
-    }
+/* =====================
+   CONTENT
+====================== */
+section {
+  max-width: 950px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: center;
+}
 
-    /* =====================
-       FOOTER
-    ====================== */
-    footer {
-      background: #050505;
-      padding: 30px 20px;
-      text-align: center;
-      border-top: 1px solid #3b2a2a;
-    }
+/* =====================
+   FOLDED LETTER PREVIEW
+====================== */
+.letter-preview {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto 60px;
+  cursor: pointer;
+}
 
-    .cta {
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
+.letter-top,
+.letter-bottom {
+  background: #f5f0e6;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.03), rgba(0,0,0,0.03)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  color: #3b2a2a;
+  padding: 28px 32px;
+  border: 1px solid rgba(59,42,42,0.4);
+  box-shadow: 4px 4px 14px rgba(0,0,0,0.5);
+}
 
-    .button {
-      display: inline-block;
-      padding: 12px 30px;
-      font-size: 16px;
-      color: #0b0b0b;
-      background: #d4af37;
-      text-decoration: none;
-      border-radius: 2px;
-      font-weight: bold;
-    }
+.letter-top { position: relative; z-index: 4; }
+.letter-bottom { margin-top: -12px; margin-left: 18px; z-index: 1; }
 
-    .button:hover { background: #bfa233; }
+.letter-top h2 { margin: 0; font-size: 26px; color: #4b0000; }
 
-    /* =====================
-       DISCLAIMER
-    ====================== */
-    .disclaimer {
-      width: 100%;
-      text-align: center;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.15);
-      margin-top: 60px;
-      padding: 10px 0;
-    }
+.letter-ribbon {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  width: 28px;
+  height: 60px;
+  background: #8b0000;
+  box-shadow: inset 0 -6px 0 rgba(0,0,0,0.25);
+  transform: translateY(-50%);
+  transition: transform 0.35s ease;
+  z-index: 3;
+}
 
-  </style>
+.letter-ribbon::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 12px solid #6e0000;
+}
+
+.letter-preview:hover .letter-ribbon { transform: translateY(-3px); }
+.letter-preview:hover .letter-top,
+.letter-preview:hover .letter-bottom { box-shadow: 6px 6px 18px rgba(0,0,0,0.65); }
+
+/* Stagger the letters for a stacked look */
+.letter-preview:nth-child(2) .letter-bottom { margin-left: 22px; }
+.letter-preview:nth-child(3) .letter-bottom { margin-left: 26px; }
+.letter-preview:nth-child(4) .letter-bottom { margin-left: 30px; }
+
+/* =====================
+   MODAL
+====================== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 999;
+}
+
+.modal {
+  background: #f5f0e6;
+  color: #3b2a2a;
+  max-width: 760px;
+  margin: 80px auto;
+  padding: 40px;
+  border: 1px solid #3b2a2a;
+  box-shadow: 0 0 30px rgba(0,0,0,0.8);
+  position: relative;
+}
+
+.modal h2 { color: #4b0000; margin-top: 0; }
+.modal p { font-size: 18px; margin-bottom: 16px; }
+
+.close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* =====================
+   FOOTER
+====================== */
+footer {
+  background: #050505;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid #3b2a2a;
+}
+
+.cta { font-size: 18px; margin-bottom: 15px; }
+
+.button {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 16px;
+  color: #0b0b0b;
+  background: #d4af37;
+  text-decoration: none;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.button:hover { background: #bfa233; }
+
+.disclaimer {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.15);
+  margin-top: 30px;
+  padding: 10px 0;
+}
+
+</style>
 </head>
-
 <body>
 
 <header>
-  <!-- Logo with link back to home -->
   <div class="logo">
     <a href="/home/">
       <img src="DMTW.png" alt="The Drunken Moon Logo" title="Back to Home">
     </a>
   </div>
 
-  <!-- Top Navigation -->
   <nav class="top-nav">
     <a href="/drinks/">Drinks</a>
     <a href="/events/">Events</a>
@@ -204,11 +287,12 @@
     <a href="/history/">History</a>
   </nav>
 
-  <!-- Header Title -->
-  <div class="header-title">HISTORY</div>
-  <div class="header-flavour">More to come for eager eyes...</div>
+  <div class="header-title">The Chronicle of the Drunken Moon</div>
+  <div class="header-flavour">
+    Letters sealed, nights remembered, and accounts set down<br>
+    for those who keep the bar.
+  </div>
 
-  <!-- Embers -->
   <div class="embers">
     <div class="ember" style="left:5%; animation-duration:12s;"></div>
     <div class="ember" style="left:15%; animation-duration:14s;"></div>
@@ -224,18 +308,104 @@
 </header>
 
 <section>
-  <!-- Future content -->
+  <!-- MF2 1025 -->
+  <div class="letter-preview" onclick="openModal('mf21025')">
+    <div class="letter-ribbon"></div>
+    <div class="letter-top">
+      <h2>MF2 – 1025 | Grand Opening of the Drunken Moon</h2>
+    </div>
+    <div class="letter-bottom">
+      <p><em>Recorded at dawn, after the first night.</em></p>
+    </div>
+  </div>
+
+  <!-- MF3 1025 -->
+  <div class="letter-preview" onclick="openModal('mf31025')">
+    <div class="letter-ribbon"></div>
+    <div class="letter-top">
+      <h2>MF3 – 1025 | The Midnight Revel</h2>
+    </div>
+    <div class="letter-bottom">
+      <p><em>Recorded at twilight, after the second night.</em></p>
+    </div>
+  </div>
+
+  <!-- MF4 1025 -->
+  <div class="letter-preview" onclick="openModal('mf41025')">
+    <div class="letter-ribbon"></div>
+    <div class="letter-top">
+      <h2>MF4 – 1025 | A Night of Whispers</h2>
+    </div>
+    <div class="letter-bottom">
+      <p><em>Recorded under the moon, after festivities continued.</em></p>
+    </div>
+  </div>
+
+  <!-- MF1 1026 Yet To Come -->
+  <div class="letter-preview" onclick="openModal('mf11026')">
+    <div class="letter-ribbon"></div>
+    <div class="letter-top">
+      <h2>MF1 – 1026 | Yet To Come</h2>
+    </div>
+    <div class="letter-bottom">
+      <p><em>To be recorded in the coming events…</em></p>
+    </div>
+  </div>
 </section>
+
+<!-- MODALS -->
+<div class="modal-overlay" id="mf21025">
+  <div class="modal">
+    <span class="close" onclick="closeModal('mf21025')">&times;</span>
+    <h2>MF2 – 1025 | Grand Opening of the Drunken Moon</h2>
+    <p>The Drunken Moon opened its awning for the first time beneath a restless sky. With us we hauled an unwieldy white behemoth of a tent — one that creaked and bowed as the wind tested its patience.</p>
+    <p>Our patronage was astonishing. The night was long, the benches were filled, musicians and dancers carried the revel, and a hearty fire burned at the heart of the bar. All were welcome. All were well watered.</p>
+    <p>By the end of the night our coffers were heavy with coin.</p>
+    <p>Yet as the hour grew late, a thief barreled through our patrons and made off with the till — a weighty mix of coin summing many legends.</p>
+    <p>Through keen persistence by the Drunken Moon crew, aided by Nation Support and Guild Leaders, the coin was recovered and the matter resolved with haste.</p>
+    <p><strong>— Set down by the Bar</strong></p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="mf31025">
+  <div class="modal">
+    <span class="close" onclick="closeModal('mf31025')">&times;</span>
+    <h2>MF3 – 1025 | The Midnight Revel</h2>
+    <p>The second night at the Drunken Moon was alive with music, laughter, and stories shared across the tavern. Guests danced until the candlelight dimmed.</p>
+    <p><strong>— Set down by the Bar</strong></p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="mf41025">
+  <div class="modal">
+    <span class="close" onclick="closeModal('mf41025')">&times;</span>
+    <h2>MF4 – 1025 | A Night of Whispers</h2>
+    <p>Whispers of new patrons and secret meetings filled the Drunken Moon. The atmosphere carried rumors and laughter alike, mingling in the candle smoke.</p>
+    <p><strong>— Set down by the Bar</strong></p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="mf11026">
+  <div class="modal">
+    <span class="close" onclick="closeModal('mf11026')">&times;</span>
+    <h2>MF1 – 1026 | Yet To Come</h2>
+    <p>This entry awaits its time. Events will unfold and be recorded when the next moon rises over the Drunken Moon Tavern.</p>
+    <p><strong>— Set down by the Bar</strong></p>
+  </div>
+</div>
 
 <footer>
   <p class="cta">Seek the crimson banners. Follow the sound of drums.</p>
   <a href="/ContactUs/" class="button">Speak to the Barkeep</a>
-
-  <!-- Disclaimer at bottom -->
   <div class="disclaimer">
     This website is not for a real business and exists only within Menhirs Fate LARP.
   </div>
 </footer>
+
+<script>
+function openModal(id) { document.getElementById(id).style.display = "block"; }
+function closeModal(id) { document.getElementById(id).style.display = "none"; }
+</script>
 
 </body>
 </html>
