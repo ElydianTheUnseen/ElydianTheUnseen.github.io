@@ -19,9 +19,7 @@
       letter-spacing: 1px;
     }
 
-    /* =====================
-       HEADER
-    ====================== */
+    /* HEADER */
     header {
       position: relative;
       background: linear-gradient(to bottom, #3b0000 0%, #0b0b0b 100%);
@@ -38,9 +36,6 @@
       z-index: 1;
     }
 
-    /* =====================
-       FLOATING LOGO
-    ====================== */
     .logo {
       position: absolute;
       top: 24px;
@@ -60,9 +55,6 @@
       100% { transform: translateY(0); }
     }
 
-    /* =====================
-       TOP NAV
-    ====================== */
     .top-nav {
       position: absolute;
       top: 30px;
@@ -77,7 +69,6 @@
       text-decoration: none;
       font-size: 16px;
       padding: 6px 12px;
-      transition: all 0.3s ease;
     }
 
     .top-nav a:hover {
@@ -86,9 +77,6 @@
       box-shadow: 0 0 10px rgba(212,175,55,0.6);
     }
 
-    /* =====================
-       HEADER TEXT
-    ====================== */
     .header-title {
       position: relative;
       z-index: 4;
@@ -103,18 +91,14 @@
       font-size: 20px;
       max-width: 700px;
       margin: auto;
-      color: #e6e0d8;
     }
 
-    /* =====================
-       EMBERS
-    ====================== */
+    /* EMBERS */
     .embers {
       position: absolute;
       inset: 0;
       z-index: 3;
       pointer-events: none;
-      overflow: hidden;
     }
 
     .ember {
@@ -134,18 +118,15 @@
     }
 
     @keyframes flicker {
-      0%, 100% { opacity: 0.4; }
+      0%,100% { opacity: 0.4; }
       50% { opacity: 0.8; }
     }
 
-    /* =====================
-       CONTENT SECTIONS
-    ====================== */
+    /* CONTENT */
     section {
       max-width: 900px;
       margin: auto;
       padding: 80px 20px;
-      text-align: center;
     }
 
     .divider {
@@ -155,40 +136,117 @@
       margin: 40px auto;
     }
 
-    .item {
-      margin-bottom: 80px;
+    /* STAGGERED ITEM LAYOUT */
+    .item-stagger {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+      margin-bottom: 120px;
     }
 
-    .item h2 {
-      font-size: 32px;
+    .item-stagger.reverse {
+      flex-direction: row-reverse;
+    }
+
+    .item-text {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 12px;
+    }
+
+    .item-text h2 {
+      font-size: 34px;
       color: #d4af37;
-      margin-bottom: 10px;
+      cursor: pointer;
     }
 
-    .item p {
+    .item-text h2:hover {
+      text-shadow: 0 0 10px rgba(212,175,55,0.4);
+    }
+
+    .item-text p {
       font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto 16px;
+      margin: 0;
     }
 
-    .invitation {
-      font-style: italic;
-      color: rgba(212,175,55,0.8);
+    .item-image {
+      flex: 1;
+      text-align: center;
     }
 
-    /* =====================
-       FOOTER
-    ====================== */
+    .item-image img {
+      width: 100%;
+      max-width: 250px; /* Keep images roughly square */
+      height: auto;
+      object-fit: cover;
+      border-radius: 4px;
+      filter: drop-shadow(0 0 18px rgba(0,0,0,0.7));
+    }
+
+    /* MOBILE STACKING */
+    @media (max-width: 768px) {
+      .item-stagger,
+      .item-stagger.reverse {
+        flex-direction: column;
+      }
+
+      .item-image img {
+        max-width: 80%;
+      }
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    .modal {
+      background: linear-gradient(to bottom, #1a0a0a, #050505);
+      border: 1px solid #3b2a2a;
+      max-width: 800px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 40px;
+      position: relative;
+    }
+
+    .modal h2 {
+      color: #d4af37;
+      font-size: 34px;
+      margin-top: 0;
+    }
+
+    .modal img {
+      max-width: 100%;
+      border: 1px solid #3b2a2a;
+      margin: 20px 0;
+    }
+
+    .close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 28px;
+      color: #d4af37;
+      cursor: pointer;
+    }
+
     footer {
       background: #050505;
       padding: 40px 20px;
       text-align: center;
       border-top: 1px solid #3b2a2a;
-    }
-
-    .cta {
-      font-size: 18px;
-      margin-bottom: 15px;
     }
 
     .button {
@@ -198,11 +256,8 @@
       color: #0b0b0b;
       background: #d4af37;
       text-decoration: none;
-      border-radius: 2px;
       font-weight: bold;
     }
-
-    .button:hover { background: #bfa233; }
 
     .disclaimer {
       margin-top: 60px;
@@ -215,9 +270,7 @@
 <body>
 
 <header>
-  <div class="logo">
-    <a href="/home/"><img src="DMTW.png" alt="The Drunken Moon"></a>
-  </div>
+  <div class="logo"><a href="/home/"><img src="DMTW.png" alt="The Drunken Moon"></a></div>
 
   <nav class="top-nav">
     <a href="/drinks/">Drinks</a>
@@ -233,65 +286,124 @@
   </div>
 
   <div class="embers">
-    <div class="ember" style="left:5%; animation-duration:14s;"></div>
-    <div class="ember" style="left:15%; animation-duration:12s;"></div>
-    <div class="ember" style="left:30%; animation-duration:16s;"></div>
-    <div class="ember" style="left:45%; animation-duration:13s;"></div>
-    <div class="ember" style="left:60%; animation-duration:15s;"></div>
-    <div class="ember" style="left:75%; animation-duration:14s;"></div>
-    <div class="ember" style="left:90%; animation-duration:12s;"></div>
+    <div class="ember" style="left:10%; animation-duration:14s;"></div>
+    <div class="ember" style="left:40%; animation-duration:16s;"></div>
+    <div class="ember" style="left:70%; animation-duration:13s;"></div>
   </div>
 </header>
 
 <section>
-  <div class="item">
-    <h2>Gulpers</h2>
-    <p>
-      Broad-mouthed and endlessly loyal, Gulpers cling to their bearer through camps,
-      markets, and misadventures. They swallow tools, trinkets, and secrets without judgement.
-    </p>
-    <p class="invitation">
-      Seek us out in the field to find your familiar.<br>
-      Gulpers do not travel by post.
-    </p>
+  <!-- Gulpers -->
+  <div class="item-stagger">
+    <div class="item-text">
+      <h2 onclick="openModal('gulperModal')">Gulpers</h2>
+      <p>Broad-mouthed and endlessly loyal, Gulpers cling to their bearer through camps, markets, and misadventures. They swallow tools, trinkets, and secrets without judgement.</p>
+      <p class="invitation">Gulpers: They Eat Your Stuff</p>
+    </div>
+    <div class="item-image">
+      <img src="gulper-teaser.png" alt="Gulper Companion">
+    </div>
   </div>
 
   <div class="divider"></div>
 
-  <div class="item">
-    <h2>Pinchshrooms</h2>
-    <p>
-      Soft-spoken companions with a habit of appearing where least expected.
-      Many swear they grow warm when danger — or ale — is near.
-    </p>
-    <p class="invitation">
-      They reveal themselves only at the Tavern.<br>
-      If one finds you, it was meant to.
-    </p>
+  <!-- Pinchshrooms -->
+  <div class="item-stagger reverse">
+    <div class="item-text">
+      <h2 onclick="openModal('pinchModal')">Pinchshrooms</h2>
+      <p>Soft-spoken companions with a habit of appearing where least expected. Many swear they grow warm when danger - or ale - is near.</p>
+      <p class="invitation">For Coins, Charms & Curious Things</p>
+    </div>
+    <div class="item-image">
+      <img src="pinchshroom-teaser.png" alt="Pinchshroom Companion">
+    </div>
   </div>
 
   <div class="divider"></div>
 
-  <div class="item">
-    <h2>Marks of the Drunken Moon</h2>
-    <p>
-      Those who bear the Moon’s mark are often recognised before they speak.
-      Seen beneath crimson banners, worn by schemers, singers, and survivors alike.
-    </p>
-    <p class="invitation">
-      The Moon does not sell loyalty — it bestows it.
-    </p>
+  <!-- Shams Distillations -->
+  <div class="item-stagger">
+    <div class="item-text">
+      <h2 onclick="openModal('shamsModal')">Shams Distillations</h2>
+      <p>Curious brews, bottled rumours, and things best not questioned.</p>
+      <p class="invitation">Some spirits linger longer than others</p>
+    </div>
+    <div class="item-image">
+      <img src="shams-teaser.png" alt="Shams Distillation Bottle">
+    </div>
   </div>
 </section>
 
-<footer>
-  <p class="cta">Seek the crimson banners. Follow the sound of drums.</p>
-  <a href="/ContactUs/" class="button">Speak to the Barkeep</a>
+<!-- MODALS MUST BE OUTSIDE THE SECTION -->
+<!-- GULPERS MODAL -->
+<div class="modal-overlay" id="gulperModal">
+  <div class="modal">
+    <span class="close" onclick="closeModal('gulperModal')">&times;</span>
+    <h2>Gulpers</h2>
+    <p><em>“If it gulps, it will guard it.”</em></p>
+    <p>Gulpers are said to be stitched with an appetite of their own,
+      forever loyal to the bearer who feeds them stories and oddments. Enchanted cloth bags for the travelling adventurer. Excellent for bog witches! </p>
+    <img src="gulper-illustration.png" alt="Gulper Illustration">
+    <p><strong>Beyond the tale:</strong> Gulpers are hand-made and designed by Elydian, crafted for durability
+      and character, each with its own quirks. If you cannot find the perfect companion then maybe they can be crafted.</p>
+    <img src="gulper-real.jpg" alt="Real Gulper Photograph">
+    <p class="invitation">Seek them beneath crimson banners.</p>
+  </div>
+</div>
 
+<!-- PINCHSHROOM MODAL -->
+<div class="modal-overlay" id="pinchModal">
+  <div class="modal">
+    <span class="close" onclick="closeModal('pinchModal')">&times;</span>
+    <h2>Pinchshrooms</h2>
+    <p><em>“Grown beneath laughter and thread.”</em></p>
+    <p>    Pinchshrooms are coaxed into being slowly, shaped by needle and thread then brought to life with just a touch of enchantment. These little coin-keepers make the perfect travel companion. Their grasping hands are ready to hitch a ride on a satchel strap, a belt or even your own hair!</p>
+    <img src="pinchshroom-illustration.png" alt="Pinchshroom Illustration">
+    <p><strong>Beyond the tale:</strong> Each Pinchshroom is hand-made and designed by Elydian,
+      never rushed, never identical.</p>
+    <img src="pinchshroom-real.jpg" alt="Real Pinchshroom">
+    <p class="invitation">If one finds you, it was meant to.</p>
+  </div>
+</div>
+
+<!-- SHAMS MODAL -->
+<div class="modal-overlay" id="shamsModal">
+  <div class="modal">
+    <span class="close" onclick="closeModal('shamsModal')">&times;</span>
+    <h2>Shams Distillations</h2>
+    <p><em>“Filtered through myth. Bottled in moonlight.”</em></p>
+    <p>Shams Distillations are said to be brewed from leftover courage,
+      questionable decisions, and whatever was on hand at the time. Beware! Some of these goods are products of The Hedge - forgotten brews now found by the infamous Sham and peddled for a fair price.</p>
+    <img src="shams-illustration.png" alt="Shams Distillation Illustration">
+    <p><strong>Beyond the tale:</strong> These props and curios are hand-crafted by Sham
+      to bring tavern lore into the waking world. Most contents are drinkable so please advise Sham if you have allergies.</p>
+    <img src="shams-real.jpg" alt="Real Shams Distillation">
+    <p class="invitation">Not all spirits are meant to be consumed.</p>
+  </div>
+</div>
+
+</section>
+
+<!-- MODALS remain unchanged -->
+<!-- ... (your modals go here) ... -->
+
+<footer>
+  <a href="/ContactUs/" class="button">Speak to the Barkeep</a>
   <div class="disclaimer">
     This website is not for a real business and exists only within Menhirs Fate LARP.
   </div>
 </footer>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+    document.body.style.overflow = "";
+  }
+</script>
 
 </body>
 </html>
