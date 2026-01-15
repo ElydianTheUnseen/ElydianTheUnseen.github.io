@@ -242,11 +242,19 @@
       cursor: pointer;
     }
 
+   /* =====================
+       FOOTER
+    ====================== */
     footer {
       background: #050505;
-      padding: 40px 20px;
+      padding: 10px 20px;
       text-align: center;
       border-top: 1px solid #3b2a2a;
+    }
+
+    .cta {
+      font-size: 18px;
+      margin-bottom: 15px;
     }
 
     .button {
@@ -256,13 +264,22 @@
       color: #0b0b0b;
       background: #d4af37;
       text-decoration: none;
+      border-radius: 2px;
       font-weight: bold;
     }
 
+    .button:hover { background: #bfa233; }
+    
+    /* =====================
+       DISCLAIMER
+    ====================== */
     .disclaimer {
-      margin-top: 60px;
+      width: 100%;
+      text-align: center;
       font-size: 12px;
-      color: rgba(255,255,255,0.15);
+      color: rgba(255, 255, 255, 0.15);
+      margin-top: 10px;
+      padding: 10px 0;
     }
   </style>
 </head>
@@ -388,6 +405,7 @@
 <!-- ... (your modals go here) ... -->
 
 <footer>
+    <p class="cta">Seek the crimson banners. Follow the sound of drums.</p>
   <a href="/ContactUs/" class="button">Speak to the Barkeep</a>
   <div class="disclaimer">
     This website is not for a real business and exists only within Menhirs Fate LARP.
